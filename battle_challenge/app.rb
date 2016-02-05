@@ -34,7 +34,17 @@ enable :sessions
     @opponent = $game.opponent.name
     $game.attack($game.opponent)
     $game.switch_turn
-    erb(:fight)
+
+    if $game.lost?
+      redirect '/game-over'
+    else
+      erb(:fight)
+    end
+  end
+
+  get '/game-over' do
+    @loser = $game.losing_player.name
+    erb(:game_over)
   end
 
 

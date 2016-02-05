@@ -29,4 +29,12 @@ class Game
     player_1 == turn ? player_2 : player_1
   end
 
+  def lost?
+    player_1.dead? || player_2.dead?
+  end
+
+  def losing_player
+    @players.select {|player| player.dead?}.pop
+  end
+
 end

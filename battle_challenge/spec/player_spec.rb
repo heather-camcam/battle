@@ -23,4 +23,11 @@ let(:opponent) {double :opponent}
     end
   end
 
+  describe '#dead?' do
+    it "return true if player's HP reach 0" do
+      allow(player).to receive(:hp) {0}
+      expect(player).to be_dead
+    end
+  end
+
 end

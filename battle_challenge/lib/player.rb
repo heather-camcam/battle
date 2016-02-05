@@ -12,4 +12,8 @@ DEFAULT_HP = 60
     @hp -= 2
   end
 
+  def dead?
+    hp == 0  
+  end
+
 end
